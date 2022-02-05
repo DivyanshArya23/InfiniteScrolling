@@ -4,9 +4,9 @@ import Usercard from "../../components/UserCard";
 import styles from "./home.module.scss";
 import Loader from "../../components/Loader";
 import LogoutBtn from "../../components/LogoutBtn";
+import { FETCH_DELAY, FETCH_MORE_COUNT, CONTACTS_COUNT } from "../../helper.ts";
 
 const Home = ({ contactList: allContacts }) => {
-  const increment = 5;
   const [count, setCount] = useState(20);
   const [loading, setLoading] = useState(false);
   const [contactList, setcontactList] = useState(allContacts.slice(0, count));
@@ -16,20 +16,19 @@ const Home = ({ contactList: allContacts }) => {
     setTimeout(() => {
       setLoading(false);
       setcontactList(allContacts.slice(0, count));
-    }, 1000);
+    }, FETCH_DELAY);
   }
 
-  function setEventListener() {
+  function fetchMoreContacts() {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      console.log("reached bottom");
-      setCount((count) => count + increment);
+      setCount((count) => count + FETCH_MORE_COUNT);
     }
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", setEventListener);
+    window.addEventListener("scroll", fetchMoreContacts);
     return () => {
-      window.removeEventListener("scroll", setEventListener);
+      window.removeEventListener("scroll", fetchMoreContacts);
     };
   }, []);
 
@@ -54,7 +53,7 @@ const Home = ({ contactList: allContacts }) => {
 export async function getServerSideProps() {
   const userObj = { name: "John Doe", imageUrl: "/userImage.png" };
   const contactList = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < CONTACTS_COUNT; i++) {
     contactList.push({ ...userObj, name: userObj.name + i });
   }
   return {
