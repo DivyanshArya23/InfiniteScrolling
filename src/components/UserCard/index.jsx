@@ -6,13 +6,13 @@ const Usercard = ({ details }) => {
   return (
     <div className={cns(styles.card, "container")}>
       <div className="row">
-        <div className="col-12 col-md-5">
+        <div className="col-3 col-md-2">
           <div
             className={cns(styles.image, "display-inline-block")}
             style={{ backgroundImage: `url('${details.imageUrl}')` }}
           ></div>
         </div>
-        <div className="col-12 col-md-7">
+        <div className={cns(styles.name, "col-9 col-md-8")}>
           <div className="div">{details.name}</div>
         </div>
       </div>

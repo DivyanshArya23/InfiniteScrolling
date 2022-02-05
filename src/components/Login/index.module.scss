@@ -1,14 +1,15 @@
 @import "../../assets/styles/vars";
+.loginScreen {
+  height: 100%;
+  width: 100vw;
+}
 .loginDiv {
   height: 300px;
   width: 350px;
   border-radius: 20px;
   box-shadow: $outerShadow2;
   background-color: $veryLightBlue;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 20vh auto;
   .loginBtn {
     margin: auto;
   }
@@ -16,4 +17,14 @@
 .input {
   padding: 10px;
   height: 30px;
+}
+.formError {
+  color: $red;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 767px) {
+  .loginDiv {
+    width: 90%;
+  }
 }

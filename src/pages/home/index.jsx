@@ -7,7 +7,7 @@ import LogoutBtn from "../../components/LogoutBtn";
 
 const Home = ({ contactList: allContacts }) => {
   const increment = 5;
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(20);
   const [loading, setLoading] = useState(false);
   const [contactList, setcontactList] = useState(allContacts.slice(0, count));
 
