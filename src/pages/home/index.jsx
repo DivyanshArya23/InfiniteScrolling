@@ -37,15 +37,19 @@ const Home = ({ contactList: allContacts }) => {
   }, [count]);
 
   return (
-    <div className={styles.home}>
-      <LogoutBtn />
-      <div className={cns(styles.title, "text-center fw-bold")}>
-        Contact List
+    <div className={styles.homeScreen}>
+      <div className={styles.home}>
+        <LogoutBtn />
+        <div className={cns(styles.title, "text-center fw-bold")}>
+          Contact List
+        </div>
+        <div className={styles.listDiv}>
+          {contactList?.map((contact, i) => (
+            <Usercard key={i} details={contact} />
+          ))}
+          <Loader className={loading ? "display-block" : "display-none"} />
+        </div>
       </div>
-      {contactList?.map((contact, i) => (
-        <Usercard key={i} details={contact} />
-      ))}
-      <Loader className={loading ? "display-block" : "display-none"} />
     </div>
   );
 };

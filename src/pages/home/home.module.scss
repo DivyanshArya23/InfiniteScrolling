@@ -1,15 +1,30 @@
+@import "../../assets/styles/vars";
+.homeScreen {
+  background-color: #bccdfd;
+}
 .home {
   padding-bottom: 50px;
   .title {
+    color: $darkBlue;
     padding: 10px;
   }
   width: 550px;
   margin: auto;
   font-size: 2rem;
 }
+@media only screen and (min-width: 768px) {
+  .listDiv {
+    box-shadow: $outerShadow2;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
 @media only screen and (max-width: 767px) {
   .home {
     font-size: 1.25rem;
     width: 100%;
+    .title {
+      border-bottom: 1px solid $lightGrey;
+    }
   }
 }
