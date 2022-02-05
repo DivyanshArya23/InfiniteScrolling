@@ -3,6 +3,7 @@ import cns from "classnames";
 import Usercard from "../../components/UserCard";
 import styles from "./home.module.scss";
 import Loader from "../../components/Loader";
+import LogoutBtn from "../../components/LogoutBtn";
 
 const Home = ({ contactList: allContacts }) => {
   const increment = 5;
@@ -18,15 +19,17 @@ const Home = ({ contactList: allContacts }) => {
     }, 1000);
   }
 
+  function setEventListener() {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      console.log("reached bottom");
+      setCount((count) => count + increment);
+    }
+  }
+
   useEffect(() => {
-    window.addEventListener("scroll", function (e) {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        console.log("reached bottom");
-        setCount((count) => count + increment);
-      }
-    });
+    window.addEventListener("scroll", setEventListener);
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll", setEventListener);
     };
   }, []);
 
@@ -36,6 +39,7 @@ const Home = ({ contactList: allContacts }) => {
 
   return (
     <div className={styles.home}>
+      <LogoutBtn />
       <div className={cns(styles.title, "text-center fw-bold")}>
         Contact List
       </div>
