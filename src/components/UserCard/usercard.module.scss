@@ -1,0 +1,12 @@
+@import "../../assets/styles/vars";
+.card {
+  border-radius: 20px;
+  box-shadow: $outerShadow2;
+  padding: 20px;
+  margin-top: 20px;
+  .image {
+    height: 200px;
+    background-size: cover;
+    background-position-x: center;
+  }
+}

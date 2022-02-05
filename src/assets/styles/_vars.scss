@@ -1,0 +1,34 @@
+$linkWater: #bfc3cf;
+$white: #fff;
+$darkBlue: #001580;
+$vividBlue: #195dff;
+$lightGrayishBlue: #eff0f3;
+$lightBluishGray: #e5e6eb;
+$lightBlue: #35d3e1;
+$mediumBlue: #264a9f;
+
+$blueRibbon: #004cff;
+$veryLightBlue: #e1e6ff;
+
+$innerShadow: inset 3px 3px 6px $linkWater, inset -3px -3px 6px $white;
+$outerShadow: 3px 3px 6px $linkWater, -3px -3px 6px $white;
+$outerShadow2: -3px -3px 6px $white, 3.5px 3.5px 6px rgba($vividBlue, 0.4);
+$outerShadowDark: 3.5px 3.5px 6px $blueRibbon, -3.5px -3.5px 6px $white;
+$cardBgColor: linear-gradient(
+  to bottom right,
+  $lightGrayishBlue,
+  $lightBluishGray
+);
+
+$blueBgGradient: linear-gradient(
+  to right,
+  $lightBlue -45%,
+  $mediumBlue 110%,
+  $vividBlue 140%
+);
+$scrollBarGradient: linear-gradient(
+  45deg,
+  $lightBlue -45%,
+  $mediumBlue 110%,
+  $vividBlue 140%
+);
