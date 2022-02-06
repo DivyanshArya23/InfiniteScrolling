@@ -15,9 +15,10 @@ export default function handler(req, res) {
       res
         .status(200)
         .json({ status: [200], loginStatus: "success", loggedIn: true });
+    } else {
+      console.log("login failed");
+      res.status(400).json({ loginStatus: "failed", loggedIn: false });
     }
-    console.log("login failed");
-    res.status(400).json({ loginStatus: "failed", loggedIn: false });
   } else {
     console.log(`method:${req.method} not allowed`);
     res.status(400).json({ loginStatus: "failed", loggedIn: false });
